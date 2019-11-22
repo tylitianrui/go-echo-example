@@ -4,12 +4,16 @@ const (
 	ERR_UNKNOWN = 0 //未知错误 0   defalut
 	SUCCESS     = 1 // 业务成功 1
 	FAIL        = 2 // 业务失败 2
+
+	CONNECT_STATUS_OK = 1000
 )
 
 var Message = map[int]string{
 	SUCCESS:     "OK",
 	FAIL:        "FAIL",
 	ERR_UNKNOWN: "Unknown error",
+
+	CONNECT_STATUS_OK: "server running",
 }
 
 // 获取错误信息
