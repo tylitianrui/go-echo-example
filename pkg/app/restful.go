@@ -7,6 +7,12 @@ type App struct {
 	Ctx echo.Context
 }
 
+func NewApp(ctx echo.Context) *App {
+	return &App{
+		Ctx: ctx,
+	}
+}
+
 type Response struct {
 	Code int         `json:"code"` // 业务状态码
 	Msg  string      `json:"msg"`  // 业务状态信息
