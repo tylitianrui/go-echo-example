@@ -17,7 +17,7 @@ func (self *App) Response(httpCode, errCode int, data interface{}) error {
 
 	return self.Ctx.JSON(httpCode, &Response{
 		Code: errCode,
-		Msg:  "",
+		Msg:  GetMessage(errCode),
 		Data: data,
 	})
 }
