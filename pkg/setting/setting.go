@@ -13,8 +13,13 @@ type MysqlConf struct {
 	Password string
 	DataBase string
 }
+type AppConf struct {
+	JwtSecret       string
+	MobileVerifyNum int
+}
 
 var (
+	G_AppConf = &AppConf{}
 	// 全局
 	G_DBConf = &MysqlConf{}
 )
@@ -35,6 +40,7 @@ func parseIni(conf string) {
 		return
 	}
 	iniMapTo(cfg, "database", G_DBConf)
+	iniMapTo(cfg, "app", G_AppConf)
 
 }
 
