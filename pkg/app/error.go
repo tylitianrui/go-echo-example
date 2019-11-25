@@ -7,8 +7,8 @@ const (
 
 	ConnectStatusOk = 1000
 
-	ParamsInvalid = 2000
-	UserMobile    = 2001
+	ErrParamsInvalid = 2000
+	ErrUserMobile    = 2001
 )
 
 var Message = map[int]string{
@@ -16,9 +16,9 @@ var Message = map[int]string{
 	FAIL:       "FAIL",
 	ErrUnknown: "Unknown error",
 
-	ConnectStatusOk: "server running",
-	ParamsInvalid:   "params invalid",
-	UserMobile:      "user mobile invalid",
+	ConnectStatusOk:  "server running",
+	ErrParamsInvalid: "params invalid",
+	ErrUserMobile:    "user mobile invalid",
 }
 
 // 获取错误信息

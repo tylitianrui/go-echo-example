@@ -1,6 +1,9 @@
 package app
 
-import "github.com/labstack/echo"
+import (
+	"github.com/labstack/echo"
+	"net/http"
+)
 
 // 封装echo
 type App struct {
@@ -26,4 +29,9 @@ func (self *App) Response(httpCode, errCode int, data interface{}) error {
 		Msg:  GetMessage(errCode),
 		Data: data,
 	})
+}
+
+func (self *App) SuccessResponse(data interface{}) error {
+	return self.Response(http.StatusOK, SUCCESS, data)
+
 }
