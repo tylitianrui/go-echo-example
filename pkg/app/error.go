@@ -6,6 +6,8 @@ const (
 	FAIL        = 2 // 业务失败 2
 
 	CONNECT_STATUS_OK = 1000
+
+	ERR_PARAMS_LACK = 2000
 )
 
 var Message = map[int]string{
@@ -14,6 +16,7 @@ var Message = map[int]string{
 	ERR_UNKNOWN: "Unknown error",
 
 	CONNECT_STATUS_OK: "server running",
+	ERR_PARAMS_LACK:   "lack of params",
 }
 
 // 获取错误信息
