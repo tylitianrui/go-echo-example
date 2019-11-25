@@ -11,7 +11,8 @@ func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
-func GenCaptcha(n int) string {
+// 随机生成n位数字字符串
+func GenRandIntN(n int) string {
 	return fmt.Sprintf(
 		"%0"+strconv.Itoa(n)+"v",
 		rand.New(rand.NewSource(

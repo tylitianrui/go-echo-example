@@ -7,5 +7,5 @@ import (
 
 func TestPow(t *testing.T) {
 	//fmt.Println(Pow(2,2))
-	fmt.Println(GenCaptcha(6))
+	fmt.Println(GenRandIntN(6))
 }
