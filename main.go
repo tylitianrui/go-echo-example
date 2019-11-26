@@ -4,8 +4,9 @@ import (
 	"flag"
 	"fmt"
 	"github.com/labstack/echo"
+	"go-echo-example/helper"
+	"go-echo-example/pkg/setting"
 	"go-echo-example/routers"
-	"go-echo-example/runtime/setting"
 	"net/http"
 	"os"
 	"time"
@@ -21,9 +22,11 @@ var (
 func init() {
 	rootBase, _ = os.Getwd()
 	defaultConf = fmt.Sprintf("%s/conf/app.ini", rootBase)
+	helper.SetupRedis()
 }
 
 func main() {
+	// 传入配置文件 默认配置文件是当前目录下的/conf/app.ini
 	confDir := flag.String("c", defaultConf, "")
 	flag.Parse()
 	setting.SetupConf(*confDir)
