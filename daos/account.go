@@ -1,7 +1,6 @@
 package daos
 
 import (
-	"crypto/md5"
 	"errors"
 	"github.com/jinzhu/gorm"
 	"go-echo-example/models"
@@ -18,7 +17,6 @@ func NewAccountDao(db *gorm.DB) *AccountDao {
 }
 
 func (self *AccountDao) Get(id uint) (*models.Account, error) {
-	md5.New()
 	var (
 		account models.Account
 	)
@@ -27,4 +25,28 @@ func (self *AccountDao) Get(id uint) (*models.Account, error) {
 		return &account, errors.New("not find")
 	}
 	return &account, nil
+}
+
+func (self *AccountDao) GetByMobile(mobile uint) (acount *models.Account, err error) {
+	var (
+		account models.Account
+	)
+
+	if err = self.db.Where("mobile = ?", mobile).First(&account).Error; err != nil {
+
+		return nil, err
+	}
+
+	if account.ID == 0 {
+		return &account, errors.New("not find")
+	}
+	return &account, nil
+}
+
+func (self *AccountDao) Create(a *models.Account) (err error) {
+
+	if err = self.db.Create(a).Error; err != nil {
+		return err
+	}
+	return nil
 }
