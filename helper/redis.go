@@ -80,3 +80,15 @@ func RedisSet(key, data string, time int) (err error) {
 	return err
 
 }
+
+// 删除key
+func RedisDel(key string) (err error) {
+	var (
+		c redis.Conn
+	)
+	c = GetRedisConn()
+	defer c.Close()
+	_, err = c.Do("DEL", key)
+	return err
+
+}
