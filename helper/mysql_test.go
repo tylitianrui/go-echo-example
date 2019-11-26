@@ -3,7 +3,7 @@ package helper
 import (
 	"fmt"
 	"go-echo-example/models"
-	"go-echo-example/runtime/setting"
+	"go-echo-example/pkg/setting"
 
 	//"log"
 	"testing"

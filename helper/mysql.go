@@ -5,7 +5,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/gommon/log"
-	"go-echo-example/runtime/setting"
+	"go-echo-example/pkg/setting"
 	"sync"
 )
 
@@ -23,7 +23,6 @@ func newDB() {
 		setting.G_DBConf.Port,
 		setting.G_DBConf.DataBase,
 	)
-	fmt.Println(db)
 
 	if DB, err = gorm.Open(setting.G_DBConf.Type, db); err != nil {
 		log.Fatal("err:", err)
