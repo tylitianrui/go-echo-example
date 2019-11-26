@@ -1,7 +1,6 @@
 package helper
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/gomodule/redigo/redis"
 	"go-echo-example/pkg/setting"
@@ -66,24 +65,18 @@ func RedisGet(key string) (reply []byte, err error) {
 
 }
 
-func RedisSet(key string, data interface{}, time int) (err error) {
+func RedisSet(key, data string, time int) (err error) {
 	var (
 		c redis.Conn
-		d []byte
 	)
 	c = GetRedisConn()
 	defer c.Close()
 
-	if d, err = json.Marshal(data); err != nil {
-
-		return err
-	}
-
 	if time <= 0 {
-		_, err = c.Do("SET", key, string(d))
+		_, err = c.Do("SET", key, data)
 		return err
 	}
-	_, err = c.Do("SET", key, string(d), "EX", time)
+	_, err = c.Do("SET", key, data, "EX", time)
 	return err
 
 }
