@@ -10,12 +10,14 @@ import (
 )
 
 var (
-	err  error
 	once sync.Once
 	DB   *gorm.DB
 )
 
 func newDB() {
+	var (
+		err error
+	)
 	db := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8",
 		setting.G_DBConf.User,
 		setting.G_DBConf.Password,
