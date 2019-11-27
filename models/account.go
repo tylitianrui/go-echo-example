@@ -13,7 +13,7 @@ type Account struct {
 	Password string `gorm:"size:255"`
 	Mobile   string `gorm:"type:varchar(11);unique_index"`
 	Status   uint   `gorm:"default:'0'"`
-	Created  int
+	Created  int64
 }
 
 func (a Account) TableName() string {
