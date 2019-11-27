@@ -23,5 +23,5 @@ func Opt(e *echo.Echo) {
 func ApiV1(g *echo.Group) {
 	account := g.Group("/account")
 	account.POST("/verify", v1Account.VerifyCode)
-	//account.POST("/register",v1Account.Register)
+	account.POST("/register", v1Account.Register)
 }

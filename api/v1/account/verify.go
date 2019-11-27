@@ -1,11 +1,11 @@
 package v1Account
 
 import (
-	"fmt"
 	"github.com/labstack/echo"
 	"go-echo-example/helper"
 	"go-echo-example/pkg/app"
 	"go-echo-example/pkg/setting"
+	"go-echo-example/pkg/utils"
 	"go-echo-example/pkg/verify"
 	"net/http"
 )
@@ -32,7 +32,7 @@ func VerifyCode(ctx echo.Context) error {
 		return c.Response(http.StatusOK, app.ErrUserMobile, nil)
 	}
 	verifyCode := verify.GenVerifyCodeString(setting.G_AppConf.MobileVerifyNum)
-	mobile_verify_key := fmt.Sprintf("%s%s", app.MobileVerifyCodeKeyPrefix, reqData.Mobile)
+	mobile_verify_key := utils.GetVerifyCodeKeyFromRds(reqData.Mobile)
 	helper.RedisSet(mobile_verify_key, verifyCode, setting.MobileVerfycCodeExpire)
 
 	return c.SuccessResponse(verifyCode)

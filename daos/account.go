@@ -3,6 +3,7 @@ package daos
 import (
 	"errors"
 	"github.com/jinzhu/gorm"
+	"go-echo-example/helper"
 	"go-echo-example/models"
 )
 
@@ -10,12 +11,17 @@ type AccountDao struct {
 	db *gorm.DB
 }
 
-func NewAccountDao(db *gorm.DB) *AccountDao {
+//func NewAccountDao(db *gorm.DB) *AccountDao {
+//	return &AccountDao{
+//		db: db,
+//	}
+//}
+
+func NewAccountDao() *AccountDao {
 	return &AccountDao{
-		db: db,
+		db: helper.GetDBInstance(),
 	}
 }
-
 func (self *AccountDao) Get(id uint) (*models.Account, error) {
 	var (
 		account models.Account
