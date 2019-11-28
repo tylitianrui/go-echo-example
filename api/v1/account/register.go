@@ -16,7 +16,7 @@ import (
 type RegisterAccountData struct {
 	User     string `json:"user"`
 	Password string `json:"password"`
-	Mobile   string `json:"mobile"`
+	Mobile   int    `json:"mobile"`
 	Code     string `json:"code"`
 }
 

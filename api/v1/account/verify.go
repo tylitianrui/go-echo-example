@@ -11,7 +11,7 @@ import (
 )
 
 type VerifyCodeData struct {
-	Mobile string `json:"mobile"`
+	Mobile int `json:"mobile"`
 }
 
 // 获取手机验证码

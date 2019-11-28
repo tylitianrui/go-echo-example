@@ -11,7 +11,7 @@ type Account struct {
 	ID       uint   `gorm:"primary_key"`
 	User     string `gorm:"index"`
 	Password string `gorm:"size:255"`
-	Mobile   string `gorm:"type:varchar(11);unique_index"`
+	Mobile   int    `gorm:"unique_index"`
 	Status   uint   `gorm:"default:'0'"`
 	Created  int64
 }
