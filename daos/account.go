@@ -33,7 +33,7 @@ func (self *AccountDao) Get(id uint) (*models.Account, error) {
 	return &account, nil
 }
 
-func (self *AccountDao) GetByMobile(mobile uint) (acount *models.Account, err error) {
+func (self *AccountDao) GetByMobile(mobile int) (acount *models.Account, err error) {
 	var (
 		account models.Account
 	)

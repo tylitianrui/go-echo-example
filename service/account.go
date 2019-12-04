@@ -31,6 +31,11 @@ func (*AccountService) Delete() {
 	panic("implement me")
 }
 
+func (self *AccountService) GetAccountByMobile(mobile int) (acount *models.Account, err error) {
+	return self.dao.GetByMobile(mobile)
+
+}
+
 func NewAccountService() *AccountService {
 	return &AccountService{
 		dao: daos.NewAccountDao(),
