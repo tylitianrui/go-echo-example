@@ -14,6 +14,7 @@ const (
 
 	ErrMobileVerifyCideNotFound = 2002 // 未找到验证码
 	ErrRegisterFail             = 2003 // 账号注册失败
+	ErrAccountOrPwdWrong        = 2004 // 账号或密码输入错误   只要登录错误就返回这一个，为了保密
 )
 
 var Message = map[int]string{
@@ -26,6 +27,7 @@ var Message = map[int]string{
 	ErrUserMobile:               "user mobile invalid",
 	ErrMobileVerifyCideNotFound: "regain mobile verify  code",
 	ErrRegisterFail:             "Register Fail",
+	ErrAccountOrPwdWrong:        "account  or  Password  wrong  ",
 }
 
 // 获取错误信息
